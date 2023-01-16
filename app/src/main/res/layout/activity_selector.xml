@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".SelectorActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seconde Page"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="147dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

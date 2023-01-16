@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+    <string name="android_logo">android_logo</string>
+    <string name="entr_es">Entrées</string>
+    <string name="plats">Plats</string>
+    <string name="desserts">Desserts</string>
+    <string name="bienvenue_chez">Bienvenue chez</string>
+    <string name="droidrestaurant">DroidRestaurant</string>
 </resources>
