@@ -3,26 +3,35 @@ package fr.isen.jaxel.androiderestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
+//import android.widget.Button
+import fr.isen.jaxel.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-    }
-    //val button = findViewById<Button>(R.id)
-    fun entreesBtnOnClick(view: View) {
-        Toast.makeText(this, "Entrées cliqué", Toast.LENGTH_SHORT).show()
-        val gameActivityIntent = Intent(this@HomeActivity, SelectorActivity::class.java)
-        startActivity(gameActivityIntent);
-    }
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        val myIntent = Intent(this@HomeActivity, SelectorActivity::class.java)
 
-    fun platsBtnOnClick(view: View) {
-        Toast.makeText(this, "Plats cliqué", Toast.LENGTH_SHORT).show()
-    }
-    fun dessertsBtnOnClick(view: View) {
-        Toast.makeText(this, "Desserts cliqué", Toast.LENGTH_SHORT).show()
+        binding.buttonEntrees.setOnClickListener {
+            Toast.makeText(this, "Entrées cliqué", Toast.LENGTH_SHORT).show()
+            myIntent.putExtra("menu", "starters")
+            startActivity(myIntent)
+        }
+
+        binding.buttonPlats.setOnClickListener {
+            Toast.makeText(this, "Plats cliqué", Toast.LENGTH_SHORT).show()
+            myIntent.putExtra("menu", "Plats")
+            startActivity(myIntent)
+        }
+
+        binding.buttonDesserts.setOnClickListener {
+            Toast.makeText(this, "Desserts cliqué", Toast.LENGTH_SHORT).show()
+            myIntent.putExtra("menu", "desserts")
+            startActivity(myIntent)
+        }
     }
 }
