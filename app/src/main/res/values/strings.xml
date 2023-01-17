@@ -1,9 +1,17 @@
-<resources>
-    <string name="app_name">AndroidERestaurant</string>
-    <string name="android_logo">android_logo</string>
-    <string name="entr_es">Entrées</string>
-    <string name="plats">Plats</string>
-    <string name="desserts">Desserts</string>
-    <string name="bienvenue_chez">Bienvenue chez</string>
-    <string name="droidrestaurant">DroidRestaurant</string>
+    <resources>
+        <string name="app_name">AndroidERestaurant</string>
+        <string name="android_logo">android_logo</string>
+        <string name="entr_es">Entrées</string>
+        <string name="plats">Plats</string>
+        <string name="desserts">Desserts</string>
+        <string name="bienvenue_chez">Bienvenue chez</string>
+        <string name="droidrestaurant">DroidRestaurant</string>
+        <string-array name="dishes_list">
+            <item>Plat 1</item>
+            <item>Plat 2</item>
+            <item>Plat 3</item>
+            <item>Plat 4</item>
+            <item>Plat 5</item>
+        </string-array>
+
 </resources>
