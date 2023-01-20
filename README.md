@@ -19,6 +19,6 @@
 
 Download the app on a device running on Android 6
 
-## Collaborators
+## Developper
 
 - Thomas JAXEL
