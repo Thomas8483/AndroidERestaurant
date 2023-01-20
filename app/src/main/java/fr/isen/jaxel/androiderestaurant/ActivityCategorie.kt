@@ -3,12 +3,13 @@ package fr.isen.jaxel.androiderestaurant
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
 import fr.isen.jaxel.androiderestaurant.databinding.ActivityCategorieBinding
 import org.json.JSONObject
 
@@ -16,7 +17,7 @@ import org.json.JSONObject
 class ActivityCategorie : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategorieBinding
-    private var itemsList = ArrayList<String>()
+    private lateinit var category: String
     private lateinit var myCategoryAdapter : AdapterDish
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,17 +42,30 @@ class ActivityCategorie : AppCompatActivity() {
             binding.RecyclerView.layoutManager = layoutManager
             binding.RecyclerView.adapter = myCategoryAdapter
         }
+        loadDishesFromAPI()
+    }
 
-        val queue = Volley.newRequestQueue(this)
+    private fun loadDishesFromAPI(){
         val url = "http://test.api.catering.bluecodegames.com/menu"
         val jsonObject = JSONObject()
         jsonObject.put("id_shop", "1")
         val jsonRequest = JsonObjectRequest(
             Request.Method.POST, url, jsonObject,
-            Response.Listener { response ->
+            {
+                Log.w("ActivityCategorie", "response : $it")
+                handleAPIData(it, toString())
             },
-            Response.ErrorListener { error ->
+            {
+                Log.w("ActivityCategorie", "error : $it")
             })
-        queue.add(jsonRequest)
+        Volley.newRequestQueue(this).add(jsonRequest)
+    }
+
+
+    private fun handleAPIData(jsonObject: JSONObject, data: String){
+        var dishesResult = Gson().fromJson(data, DataResult::class.java)
+        val dishCategory = dishesResult.data.firstOrNull { it.nameFr == category}
+        val adapter = binding.categoryList.adapter as CategoryAdapter
+        adapter.refreshList(dishCategory)
     }
 }
