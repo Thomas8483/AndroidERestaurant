@@ -18,45 +18,16 @@
             app:srcCompat="@drawable/salad" />
 
         <TextView
-            android:id="@+id/content_allergen"
+            android:id="@+id/dishTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to_be_replaced"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_meal"
-            app:layout_constraintStart_toEndOf="@+id/text_allergen"
-            app:layout_constraintTop_toBottomOf="@+id/content_name" />
-
-        <TextView
-            android:id="@+id/content_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="to_be_replaced"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/text_name"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nom: "
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/text_allergen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/image_meal" />
 
-        <TextView
-            android:id="@+id/text_allergen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="allergènes: "
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/image_meal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/content_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

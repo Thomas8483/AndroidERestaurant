@@ -1,4 +1,4 @@
-package fr.isen.jaxel.androiderestaurant
+package fr.isen.jaxel.androiderestaurant.model
 
 class Meal (
     val id : String,
