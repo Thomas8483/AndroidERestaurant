@@ -31,12 +31,13 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
-        var menuName = intent.getStringExtra("categoryName") ?: ""
-        var menuList = intent.getStringArrayListExtra("List_Meal")
+        val menuName = intent.getStringExtra("categoryName") ?: ""
+        val menuList = intent.getStringArrayListExtra("List_Meal")
 
-        if (menuName != null && menuList != null) {
+        if (menuList != null) {
             supportActionBar?.title = menuName
 
             myCategoryAdapter = DishAdapter(itemsList){
@@ -69,11 +70,16 @@ class CategoryActivity : AppCompatActivity() {
         Volley.newRequestQueue(this).add(jsonRequest)
     }
 
-
     private fun handleAPIData(data: String){
-        var dishesResult = Gson().fromJson(data, DataResult::class.java)
+        val dishesResult = Gson().fromJson(data, DataResult::class.java)
         val dishCategory = dishesResult.data.firstOrNull { it.nameFr == category }
         val adapter = binding.categoryList.adapter as DishAdapter
         adapter.refreshList(dishCategory?.items as ArrayList<Items>)
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
 }

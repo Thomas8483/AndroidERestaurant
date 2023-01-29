@@ -7,6 +7,8 @@
     <string name="bienvenue_chez">Bienvenue chez</string>
     <string name="droidrestaurant">DroidRestaurant</string>
     <string name="retour">Retour</string>
+    <string name="image_plat">Image_plat</string>
+    <string name="price">Prix</string>
 
     <string-array name="entries_list">
         <item>Entrée 1</item>

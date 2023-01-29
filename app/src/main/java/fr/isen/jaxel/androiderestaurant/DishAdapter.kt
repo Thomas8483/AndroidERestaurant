@@ -14,6 +14,7 @@ internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItem
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val dishTitle: TextView = view.findViewById(R.id.dishTitle)
         val contentImage: ImageView = view.findViewById(R.id.image_meal)
+        val dishPrice: TextView = view.findViewById(R.id.dishPrice)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -25,6 +26,7 @@ internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItem
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = myArrayList[position]
         holder.dishTitle.text = item.nameFr
+        holder.dishPrice.text = item.prices[0].price
         if (item.images[0].isNotEmpty()) {
             Picasso.get().load(myArrayList[position].images[0])
                 .placeholder(R.drawable.android_logo)
