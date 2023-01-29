@@ -31,6 +31,8 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        //Bouton Retour
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 
@@ -41,17 +43,19 @@ class CategoryActivity : AppCompatActivity() {
             supportActionBar?.title = menuName
 
             myCategoryAdapter = DishAdapter(itemsList){
-                val intent = Intent(this, CategoryActivity::class.java)
-                intent.putExtra("categoryName", "Entrées")
+                val intent = Intent(this, DetailsActivity::class.java)
                 startActivity(intent)
             }
+
             val layoutManager = LinearLayoutManager(applicationContext)
             binding.categoryList.layoutManager = layoutManager
             binding.categoryList.adapter = myCategoryAdapter
-
             binding.categoryList.layoutManager = LinearLayoutManager(this)
+
         }
         loadDishesFromAPI()
+
+
     }
 
     private fun loadDishesFromAPI(){
@@ -77,6 +81,7 @@ class CategoryActivity : AppCompatActivity() {
         adapter.refreshList(dishCategory?.items as ArrayList<Items>)
     }
 
+    //Fonction retour
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true
