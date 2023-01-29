@@ -7,4 +7,4 @@ data class DataResult (
 
   @SerializedName("data" ) var data : ArrayList<Data> = arrayListOf()
 
-)
+):java.io.Serializable

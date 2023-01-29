@@ -7,4 +7,4 @@ class Meal (
     val id_category: String,
     val categ_name_fr: String,
     val categ_name_en: String
-)
+):java.io.Serializable

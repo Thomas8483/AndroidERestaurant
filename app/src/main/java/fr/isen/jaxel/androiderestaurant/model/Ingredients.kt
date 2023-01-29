@@ -13,4 +13,4 @@ data class Ingredients (
   @SerializedName("update_date" ) var updateDate : String? = null,
   @SerializedName("id_pizza"    ) var idPizza    : String? = null
 
-)
+):java.io.Serializable

@@ -44,6 +44,7 @@ class CategoryActivity : AppCompatActivity() {
 
             myCategoryAdapter = DishAdapter(itemsList){
                 val intent = Intent(this, DetailsActivity::class.java)
+                intent.putExtra("detail", it)
                 startActivity(intent)
             }
 

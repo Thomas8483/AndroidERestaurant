@@ -1,7 +1,6 @@
 package fr.isen.jaxel.androiderestaurant
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.isen.jaxel.androiderestaurant.model.Items
 import com.squareup.picasso.Picasso
-import fr.isen.jaxel.androiderestaurant.model.DataResult
 
-internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItemClickListener: () -> Unit) : RecyclerView.Adapter<DishAdapter.MyViewHolder>() {
+internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItemClickListener: (Items) -> Unit) : RecyclerView.Adapter<DishAdapter.MyViewHolder>() {
 
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val dishTitle: TextView = view.findViewById(R.id.dishTitle)
@@ -35,11 +33,9 @@ internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItem
                 .placeholder(R.drawable.android_logo)
                 .into(holder.contentImage)
         }
+
         holder.itemView.setOnClickListener {
-            //onItemClickListener()
-            val intent = Intent(holder.itemView.context, DetailsActivity::class.java)
-            intent.putExtra("title", item.nameFr)
-            holder.itemView.context.startActivity(intent)
+            onItemClickListener(item)
         }
     }
 
