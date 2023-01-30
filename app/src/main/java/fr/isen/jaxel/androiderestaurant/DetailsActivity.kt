@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import fr.isen.jaxel.androiderestaurant.databinding.ActivityDetailsBinding
 import fr.isen.jaxel.androiderestaurant.model.Items
+import androidx.viewpager.widget.ViewPager
 
 class DetailsActivity : AppCompatActivity() {
     private lateinit var item: Items
@@ -32,6 +33,12 @@ class DetailsActivity : AppCompatActivity() {
         val ingredients = item.ingredients
 
         var compteur = 0
+
+        //Carrousel
+        val viewPager = findViewById<ViewPager>(R.id.imageDetail)
+        val mCarrouselAdapter = CarrouselAdapter(this, this.item.images)
+        viewPager.adapter = mCarrouselAdapter
+
 
         if (item.ingredients.isNotEmpty()){
             val ingredientsString = StringBuilder()
