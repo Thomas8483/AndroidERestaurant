@@ -39,7 +39,6 @@ internal class DishAdapter(private var myArrayList: ArrayList<Items>, val onItem
         }
     }
 
-
     override fun getItemCount(): Int = myArrayList.size
 
     @SuppressLint("NotifyDataSetChanged")

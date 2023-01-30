@@ -10,6 +10,7 @@
     <string name="image_plat">Image_plat</string>
     <string name="price">Prix</string>
     <string name="ingr_dients">Ingrédients</string>
+    <string name="euros">€</string>
 
     <string-array name="entries_list">
         <item>Entrée 1</item>

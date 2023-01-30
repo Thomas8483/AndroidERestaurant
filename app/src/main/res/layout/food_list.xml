@@ -20,12 +20,13 @@
 
         <TextView
             android:id="@+id/dishTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="37dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_meal"
+            app:layout_constraintHorizontal_bias="0.091"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/image_meal" />
 
@@ -37,8 +38,22 @@
             android:text="@string/price"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/image_meal"
+            app:layout_constraintHorizontal_bias="0.706"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dishTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/dishTitle"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <TextView
+            android:id="@+id/euros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/euros"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/image_meal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/dishPrice"
+            app:layout_constraintTop_toBottomOf="@+id/dishTitle"
+            app:layout_constraintVertical_bias="0.478" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

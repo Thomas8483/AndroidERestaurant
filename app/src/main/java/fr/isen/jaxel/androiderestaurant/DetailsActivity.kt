@@ -2,6 +2,7 @@ package fr.isen.jaxel.androiderestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import fr.isen.jaxel.androiderestaurant.databinding.ActivityDetailsBinding
 import fr.isen.jaxel.androiderestaurant.model.Items
 
@@ -30,6 +31,8 @@ class DetailsActivity : AppCompatActivity() {
 
         val ingredients = item.ingredients
 
+        var compteur = 0
+
         if (item.ingredients.isNotEmpty()){
             val ingredientsString = StringBuilder()
             ingredients.forEach { ingredients ->
@@ -37,6 +40,23 @@ class DetailsActivity : AppCompatActivity() {
                 ingredientsString.append("\n")
             }
             binding.ingredients.text = ingredientsString
+
+            binding.plusButton.setOnClickListener {
+                compteur++
+                binding.quantity.text = Editable.Factory.getInstance().newEditable(compteur.toString())
+                val addition = compteur * item.prices[0].price?.toDouble()!!
+                binding.addition.text = addition.toString()
+            }
+
+            binding.lessButton.setOnClickListener {
+                compteur--
+                binding.quantity.text = Editable.Factory.getInstance().newEditable(compteur.toString())
+                val addition = compteur * item.prices[0].price?.toDouble()!!
+                binding.addition.text = addition.toString()
+            }
+
+            binding.quantity.text = compteur.toString()
+
         }
     }
 
